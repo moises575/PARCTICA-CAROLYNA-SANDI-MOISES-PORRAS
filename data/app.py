@@ -21,5 +21,12 @@ st.markdown("---")
 # ZONA DE TRABAJO
 # ==========================================
 
-# Espacio reservado para nuevas funcionalidades
+# Funcionalidad B: KPIs Generales
+total_ingresos = df['ingreso'].sum()
+total_unidades = df['unidades'].sum()
+
+col1, col2 = st.columns(2)
+col1.metric("Ingresos Totales", f"${total_ingresos}")
+col2.metric("Unidades Vendidas", f"{total_unidades}")
+
 
