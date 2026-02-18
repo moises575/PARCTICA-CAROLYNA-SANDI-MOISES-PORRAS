@@ -29,4 +29,11 @@ col1, col2 = st.columns(2)
 col1.metric("Ingresos Totales", f"${total_ingresos}")
 col2.metric("Unidades Vendidas", f"{total_unidades}")
 
+# Funcionalidad A: Filtros por Sucursal
+st.sidebar.header("Filtros")
+sucursal = st.sidebar.selectbox("Seleccionar Sucursal", df['sucursal'].unique())
+
+df_filtered = df[df['sucursal'] == sucursal]
+st.subheader(f"Ventas de la sucursal: {sucursal}")
+st.bar_chart(df_filtered.set_index('producto')['ingreso'])
 
